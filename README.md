@@ -1,20 +1,20 @@
-## Week 5 Homework Submission File: Archiving and Logging Data
-
-Please edit this file by adding the solution commands on the line below the prompt.
-
-Save and submit the completed file for your homework submission.
-
----
+## Archiving and Logging Data
 
 ### Step 1: Create, Extract, Compress, and Manage tar Backup Archives
 
 1. Command to **extract** the `TarDocs.tar` archive to the current directory:
+
 &nbsp;![ ](Images/extract-tar.jpg)&nbsp;
 &nbsp;![ ](Images/tar-docs.jpg)&nbsp;
+
 2. Command to **create** the `Javaless_Doc.tar` archive from the `TarDocs/` directory, while excluding the `TarDocs/Documents/Java` directory:
+
 &nbsp;![ ](Images/javaless-doc.jpg)&nbsp;
+
 3. Command to ensure `Java/` is not in the new `Javaless_Docs.tar` archive:
+
 &nbsp;![ ](Images/grep-java.jpg)&nbsp;
+
 **Bonus** 
 - Command to create an incremental archive called `logs_backup_tar.gz` with only changed files to `snapshot.file` for the `/var/log` directory:
 &nbsp;![ ](Images/log-backup.jpg)&nbsp;
@@ -23,7 +23,7 @@ Save and submit the completed file for your homework submission.
 
 - Why wouldn't you use the options `-x` and `-c` at the same with `tar`? <br />
 
-Because `-x` is used to extract and `-c` is used to create a tar archive.
+     - Because `-x` is used to extract and `-c` is used to create a tar archive.
 
 
 ---
@@ -32,6 +32,7 @@ Because `-x` is used to extract and `-c` is used to create a tar archive.
 ### Step 2: Create, Manage, and Automate Cron Jobs
 
 1. Cron job for backing up the `/var/log/auth.log` file:
+
 &nbsp;![ ](Images/crontab-e.jpg)&nbsp;
 &nbsp;![ ](Images/cron-editing.jpg)&nbsp;
 ---
@@ -39,9 +40,9 @@ Because `-x` is used to extract and `-c` is used to create a tar archive.
 ### Step 3: Write Basic Bash Scripts
 
 1. Brace expansion command to create the four subdirectories:
-```
-mkdir -p ~/backups/{freemem,diskuse,openlist,freedisk}
-```
+
+     - mkdir -p ~/backups/{freemem,diskuse,openlist,freedisk}
+
 2. Paste your `system.sh` script edits below:
 
 ```bash
@@ -81,6 +82,7 @@ chmod +x system.sh
 1. Run `sudo nano /etc/logrotate.conf` to edit the `logrotate` configuration file. 
 
     Configure a log rotation scheme that backs up authentication messages to the `/var/log/auth.log`.
+    
 ![ ](Images/logrotate.jpg)
 
     - **weekly:** rotates weekly 
@@ -153,9 +155,8 @@ chmod +x system.sh
 
 
 3. Comand to remove all archived journal files except the most recent two:
-```
-    sudo journalctl –vacuum-time=2d
-```
+
+   - sudo journalctl –vacuum-time=2d
 
 
 4. Command to filter all log messages with priority levels between zero and two, and save output to `/home/sysadmin/Priority_High.txt`:
